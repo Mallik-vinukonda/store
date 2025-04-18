@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaInstagram, FaWhatsap
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-white pt-12 pb-6">
+    <footer className="bg-primary text-white pt-10 pb-4">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Store Info */}
@@ -87,7 +87,7 @@ const Footer = () => {
         </div>
 
         {/* Free Delivery Banner */}
-        <div className="bg-secondary text-white p-4 rounded-lg text-center mb-8">
+        <div className="bg-secondary text-white p-2 rounded-lg text-center mb-2">
           <h4 className="font-display font-semibold">FREE DELIVERY IN VIZAG CITY!</h4>
           <p>On all orders above ₹500</p>
         </div>
