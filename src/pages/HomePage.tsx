@@ -4,6 +4,8 @@ import { FaArrowRight, FaLeaf, FaTruck, FaMedal } from 'react-icons/fa';
 import { fetchProducts, Product } from '../services/supabase';
 import ProductCard from '../components/product/ProductCard';
 import Button from '../components/ui/Button';
+import { motion } from 'framer-motion';
+
 
 const HomePage = () => {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
@@ -205,25 +207,45 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-secondary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-        <div className="container-custom text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Order Premium Dry Fruits?
-          </h2>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed">
-            Explore our wide range of high-quality dry fruits and nuts. <br />
-            Free delivery on orders above ₹500 in Vizag.
-          </p>
-          <Button 
-            size="lg" 
-            className="text-black text-secondary hover:bg-primary hover:text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-            onClick={() => window.location.href = '/products'}
-          >
-            Shop Now <FaArrowRight className="inline-block ml-2" />
-          </Button>
-        </div>
-      </section>
+     
+<section className="py-16 bg-white text-primary relative overflow-hidden">
+  {/* Decorative pattern overlay */}
+  <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5 pointer-events-none"></div>
+
+  <div className="container-custom text-center relative z-10">
+    {/* Animated heading */}
+    <motion.h2
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-3xl md:text-4xl font-bold mb-6"
+    >
+      Ready to Order Premium Dry Fruits?
+    </motion.h2>
+
+    {/* Subtext with slight delay */}
+    <motion.p
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3, duration: 0.6 }}
+      className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed text-gray-700"
+    >
+      Explore our wide range of high-quality dry fruits and nuts. <br />
+      Free delivery on orders above ₹500 in Vizag.
+    </motion.p>
+
+    {/* Button with interactive effect */}
+    <motion.button
+      whileHover={{ scale: 1.07 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => window.location.href = '/products'}
+      className="inline-flex items-center bg-secondary text-white hover:bg-primary transition-all duration-300 font-semibold px-6 py-3 rounded-full shadow-lg"
+    >
+      Shop Now <FaArrowRight className="ml-2" />
+    </motion.button>
+  </div>
+</section>
+
 
     </div>
   );
